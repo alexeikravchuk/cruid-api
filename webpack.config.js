@@ -1,11 +1,13 @@
 import path from 'path';
+import NodemonPlugin from 'nodemon-webpack-plugin';
 
 const __dirname = import.meta.dirname;
 
 export default {
-  target: 'node',
+  target: 'node20',
   mode: 'development',
-  entry: './src/index.ts',
+  watch: true,
+  entry: './src/app.ts',
   module: {
     rules: [
       {
@@ -21,5 +23,13 @@ export default {
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
+    libraryTarget: 'module',
+    environment: {
+      module: true,
+    },
   },
+  experiments: {
+    outputModule: true,
+  },
+  plugins: [new NodemonPlugin()],
 };

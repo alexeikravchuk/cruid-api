@@ -1,5 +1,13 @@
-const sayHi = (name: string) => {
-  console.log(`Hi, ${name}`);
-};
+import { Endpoit } from 'types';
+import { createServer } from './server';
 
-sayHi('TypeScript');
+import dotenv from 'dotenv';
+import { apiRoutes } from './routes/api';
+
+dotenv.config();
+
+const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+
+const endpoints: Endpoit[] = [...apiRoutes];
+
+createServer(endpoints, port);

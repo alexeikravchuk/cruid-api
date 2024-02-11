@@ -1,6 +1,12 @@
 # cruid-api
 RS School. Node.js Course. 
 
+commands:
+- ``npm install`` - to install dependencies
+- ``npm run dev`` - to start application in development mode
+- ``npm run build`` - to build application
+- ``npm run start`` - to start builded application from `dist` folder 
+
 # Assignment: CRUD API
 
 ## Description

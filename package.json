@@ -2,11 +2,15 @@
   "name": "cruid-api",
   "version": "1.0.0",
   "description": "RS School. Node.js Course. Assignment: CRUD API",
-  "main": "app.js",
+  "main": "dist/app.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon app.js",
-    "start:multi": "node multi.js",
-    "test": "jest --silent"
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "test": "jest --silent",
+
+    "start": "node dist/app.js",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,15 @@
   "bugs": {
     "url": "https://github.com/alexeikravchuk/cruid-api/issues"
   },
-  "homepage": "https://github.com/alexeikravchuk/cruid-api#readme"
+  "homepage": "https://github.com/alexeikravchuk/cruid-api#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.3",
+    "ts-jest": "^29.1.2",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4"
+  }
 }

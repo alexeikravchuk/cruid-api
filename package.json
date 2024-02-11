@@ -1,0 +1,26 @@
+{
+  "name": "cruid-api",
+  "version": "1.0.0",
+  "description": "RS School. Node.js Course. Assignment: CRUD API",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "start:multi": "node multi.js",
+    "test": "jest --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeikravchuk/cruid-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "cruid",
+    "api"
+  ],
+  "author": "Aliaksei Krauchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexeikravchuk/cruid-api/issues"
+  },
+  "homepage": "https://github.com/alexeikravchuk/cruid-api#readme"
+}

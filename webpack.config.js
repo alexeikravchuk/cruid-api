@@ -2,11 +2,11 @@ import path from 'path';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 
 const __dirname = import.meta.dirname;
+const mode = process.env.NODE_ENV || 'development';
 
 export default {
   target: 'node20',
-  mode: 'development',
-  watch: true,
+  mode,
   entry: './src/app.ts',
   module: {
     rules: [

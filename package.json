@@ -7,9 +7,9 @@
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" --fix",
     "test": "jest --silent",
-    "dev": "webpack --mode development",
-    "start": "ts-node index.ts",
-    "build": "webpack --mode production"
+    "start:dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "start:prod": "node dist/app.js"
   },
   "repository": {
     "type": "git",

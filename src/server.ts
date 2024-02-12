@@ -12,8 +12,8 @@ export const createServer = (endpoints: Endpoit[], port: number) => {
       } catch (error) {
         res.writeHead(500);
         res.end(JSON.stringify({ error: 'Internal server error' }));
+        return;
       }
-      endpoint.handler(req, res, endpoint);
     } else {
       res.writeHead(404);
       res.end(JSON.stringify({ error: 'Resource not found' }));

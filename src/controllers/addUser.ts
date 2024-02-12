@@ -9,14 +9,13 @@ const addUser: EndpoitHandler = async (req, res) => {
 
   const userName = userData.username;
   const userAge = userData.age;
+  const hobbies = userData.hobbies;
 
-  if (!userName || !userAge) {
+  if (!userName || !userAge || !hobbies) {
     res.writeHead(400);
     res.end(JSON.stringify({ error: 'Invalid user data' }));
     return;
   }
-
-  const hobbies = userData.hobbies || [];
 
   const user = new User(userName, userAge, hobbies);
 

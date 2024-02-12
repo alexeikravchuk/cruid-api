@@ -3,10 +3,16 @@ import url from 'node:url';
 import { Endpoit } from 'types';
 
 export const createServer = (endpoints: Endpoit[], port: number) => {
-  const requestHandler = (req: IncomingMessage, res: ServerResponse) => {
+  const requestHandler = async (req: IncomingMessage, res: ServerResponse) => {
     const endpoint = matchEndpoint(endpoints, req);
 
     if (endpoint) {
+      try {
+        await Promise.resolve(endpoint.handler(req, res, endpoint));
+      } catch (error) {
+        res.writeHead(500);
+        res.end(JSON.stringify({ error: 'Internal server error' }));
+      }
       endpoint.handler(req, res, endpoint);
     } else {
       res.writeHead(404);

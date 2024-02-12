@@ -1,6 +1,7 @@
 import db from '../db';
-import { getBodyData } from '../utils/getBodyData';
-import { User } from '../models/User';
+import getBodyData from '../utils/getBodyData';
+import User from '../models/User';
+
 import { EndpoitHandler } from '../types';
 
 const addUser: EndpoitHandler = async (req, res) => {

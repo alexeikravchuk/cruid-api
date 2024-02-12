@@ -1,4 +1,5 @@
 import db from '../db';
+
 import { EndpoitHandler } from '../types';
 
 const sebdUsersList: EndpoitHandler = (_req, res) => {

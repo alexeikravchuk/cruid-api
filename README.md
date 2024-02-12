@@ -5,7 +5,9 @@ commands:
 - ``npm install`` - to install dependencies
 - ``npm run dev`` - to start application in development mode
 - ``npm run build`` - to build application
-- ``npm run start`` - to start builded application from `dist` folder 
+- ``npm run start`` - to start builded application from `dist` folder
+
+To spawn some default users make GET requst to route [/api/users/spawn](http://localhost:3000/api/users/spawn)
 
 # Assignment: CRUD API
 

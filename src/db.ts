@@ -56,6 +56,10 @@ export class Database {
 
     collection[index] = values;
   }
+
+  clearCollection(collectionName: string) {
+    this.data.set(collectionName, []);
+  }
 }
 
 export default Database.getInstance();

@@ -27,6 +27,15 @@ export class Database {
     collection?.push(values);
   }
 
+  getValue(collectionName: string, id: string) {
+    if (!this.data.has(collectionName)) {
+      return;
+    }
+
+    const collection = this.data.get(collectionName);
+    return collection?.find((item) => item.id === id);
+  }
+
   removeValue(collectionName: string, id: string) {
     if (!this.data.has(collectionName)) {
       return;

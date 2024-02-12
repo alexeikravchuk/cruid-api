@@ -1,7 +1,12 @@
+import { IncomingMessage, ServerResponse } from 'http';
+export type EndpoitHandler = (req: IncomingMessage, res: ServerResponse, endpoint: Endpoit) => void;
+
 export type Endpoit = {
   path: string;
   method: string;
-  handler: (req: any, res: any) => void;
+  params?: Record<string, string>;
+  query?: Record<string, string>;
+  handler: EndpoitHandler;
 };
 
 export type User = {

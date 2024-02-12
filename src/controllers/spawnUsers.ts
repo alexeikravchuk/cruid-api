@@ -1,6 +1,7 @@
-import { ServerResponse, IncomingMessage } from 'http';
 import { User } from '../models/User';
 import db from '../db';
+
+import { EndpoitHandler } from '../types';
 
 const users = [
   {
@@ -20,7 +21,7 @@ const users = [
   },
 ];
 
-export default function (_req: IncomingMessage, res: ServerResponse) {
+const spawnUsers: EndpoitHandler = (_req, res) => {
   db.clearCollection('users');
 
   const usersFromDb = users.map((userData) => {
@@ -32,4 +33,6 @@ export default function (_req: IncomingMessage, res: ServerResponse) {
 
   res.writeHead(201);
   res.end(JSON.stringify(usersFromDb));
-}
+};
+
+export default spawnUsers;

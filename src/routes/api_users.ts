@@ -1,9 +1,10 @@
 import { API_METHOD } from '../constants';
 import { Endpoit } from '../types';
 
-import { addUser } from '../controllers/addUser';
+import addUser from '../controllers/addUser';
 import sendUsersList from '../controllers/sendUsersList';
 import spawnUsers from '../controllers/spawnUsers';
+import getUserById from '../controllers/getUserById';
 
 export const apiRoutes: Endpoit[] = [
   {
@@ -20,6 +21,11 @@ export const apiRoutes: Endpoit[] = [
     path: '/api/users/spawn',
     method: API_METHOD.GET,
     handler: spawnUsers,
+  },
+  {
+    path: '/api/users/:id',
+    method: API_METHOD.GET,
+    handler: getUserById,
   },
   {
     path: '/api/users/:id',

@@ -1,9 +1,9 @@
-import { IncomingMessage, ServerResponse } from 'http';
 import db from '../db';
 import { getBodyData } from '../utils/getBodyData';
 import { User } from '../models/User';
+import { EndpoitHandler } from '../types';
 
-export const addUser = async (req: IncomingMessage, res: ServerResponse) => {
+const addUser: EndpoitHandler = async (req, res) => {
   const rawData = await getBodyData(req);
 
   const userData = JSON.parse(rawData);
@@ -25,3 +25,5 @@ export const addUser = async (req: IncomingMessage, res: ServerResponse) => {
   res.writeHead(201);
   res.end(JSON.stringify(user));
 };
+
+export default addUser;

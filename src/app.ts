@@ -2,7 +2,7 @@ import { Endpoit } from 'types';
 import { createServer } from './server';
 
 import dotenv from 'dotenv';
-import { apiRoutes } from './routes/api';
+import { apiRoutes } from './routes/api_users';
 
 dotenv.config();
 

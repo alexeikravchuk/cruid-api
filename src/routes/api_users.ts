@@ -6,6 +6,7 @@ import sendUsersList from '../controllers/sendUsersList';
 import spawnUsers from '../controllers/spawnUsers';
 import getUserById from '../controllers/getUserById';
 import updateUser from '../controllers/updateUser';
+import deleteUser from '../controllers/deleteUser';
 
 export const apiRoutes: Endpoit[] = [
   {
@@ -36,6 +37,6 @@ export const apiRoutes: Endpoit[] = [
   {
     path: '/api/users/:id',
     method: API_METHOD.DELETE,
-    handler: () => {},
+    handler: deleteUser,
   },
 ];

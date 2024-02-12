@@ -5,9 +5,7 @@ import User from '../models/User';
 import { EndpoitHandler } from '../types';
 
 const addUser: EndpoitHandler = async (req, res) => {
-  const rawData = await getBodyData(req);
-
-  const userData = JSON.parse(rawData);
+  const userData = await getBodyData(req);
 
   const userName = userData.username;
   const userAge = userData.age;

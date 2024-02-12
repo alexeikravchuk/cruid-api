@@ -37,18 +37,20 @@ export class Database {
   }
 
   removeValue(collectionName: string, id: string) {
-    if (!this.data.has(collectionName)) {
-      return;
-    }
-
     const collection = this.data.get(collectionName);
-    const index = collection?.findIndex((item) => item.id === id);
 
-    if (!collection || !index || index === -1) {
+    if (!collection) {
       return;
     }
 
-    collection.splice(index, 1);
+    const index = collection.findIndex((item) => item.id === id);
+
+    if (index === -1) {
+      return;
+    }
+
+    const [user] = collection.splice(index, 1);
+    return user;
   }
 
   updateValue(collectionName: string, id: string, values: any) {

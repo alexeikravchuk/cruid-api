@@ -1,8 +1,10 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { IncomingMessage } from 'http';
 
-export type EndpoitHandler = (req: IncomingMessage, res: ServerResponse, endpoint: Endpoit) => void;
+export type ResponseData = [data: unknown, code: number];
+
+export type EndpoitHandler = (req: IncomingMessage, endpoint: Endpoit) => ResponseData | Promise<ResponseData>;
+
 export type IsValid = { isValid: boolean; msg?: string };
-
 
 export type Endpoit = {
   path: string;
@@ -18,4 +20,3 @@ export interface IUser {
   age: number;
   hobbies: string[];
 }
-

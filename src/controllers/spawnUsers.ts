@@ -21,7 +21,7 @@ const users = [
   },
 ];
 
-const spawnUsers: EndpoitHandler = (_req, res) => {
+const spawnUsers: EndpoitHandler = () => {
   db.clearCollection('users');
 
   const usersFromDb = users.map((userData) => {
@@ -31,8 +31,7 @@ const spawnUsers: EndpoitHandler = (_req, res) => {
     return user;
   });
 
-  res.writeHead(201);
-  res.end(JSON.stringify(usersFromDb));
+  return [usersFromDb, 201];
 };
 
 export default spawnUsers;

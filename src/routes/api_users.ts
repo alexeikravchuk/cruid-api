@@ -2,7 +2,7 @@ import { API_METHOD } from '../constants';
 import { Endpoit } from '../types';
 
 import addUser from '../controllers/addUser';
-import sendUsersList from '../controllers/sendUsersList';
+import getUsers from '../controllers/getUsers';
 import spawnUsers from '../controllers/spawnUsers';
 import getUserById from '../controllers/getUserById';
 import updateUser from '../controllers/updateUser';
@@ -12,7 +12,7 @@ export const apiRoutes: Endpoit[] = [
   {
     path: '/api/users',
     method: API_METHOD.GET,
-    handler: sendUsersList,
+    handler: getUsers,
   },
   {
     path: '/api/users',

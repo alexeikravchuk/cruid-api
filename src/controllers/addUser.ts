@@ -5,15 +5,13 @@ import User from '../models/User';
 import { EndpoitHandler } from '../types';
 import validateUser from '../utils/validateUser';
 
-const addUser: EndpoitHandler = async (req, res) => {
+const addUser: EndpoitHandler = async (req) => {
   const userData = await getBodyData(req);
 
   const { isValid, msg } = validateUser(userData);
 
   if (!isValid) {
-    res.writeHead(400);
-    res.end(JSON.stringify({ error: `Invalid user data: ${msg}` }));
-    return;
+    return [{ error: `Invalid user data: ${msg}` }, 400];
   }
 
   const userName = userData.username;
@@ -23,8 +21,7 @@ const addUser: EndpoitHandler = async (req, res) => {
   const user = new User(userName, userAge, hobbies);
 
   db.addValue('users', user);
-  res.writeHead(201);
-  res.end(JSON.stringify(user));
+  return [user, 201];
 };
 
 export default addUser;

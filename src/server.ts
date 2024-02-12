@@ -8,16 +8,17 @@ export const createServer = (endpoints: Endpoit[], port: number) => {
       const endpoint = matchEndpoint(endpoints, req);
 
       if (endpoint) {
-        await Promise.resolve(endpoint.handler(req, res, endpoint));
+        const [data, code] = await Promise.resolve(endpoint.handler(req, endpoint));
+        res.writeHead(code);
+        res.end(JSON.stringify(data));
       } else {
         res.writeHead(404);
         res.end(JSON.stringify({ error: 'Resource not found' }));
       }
     } catch (error) {
+      console.log(error);
       res.writeHead(500);
       res.end(JSON.stringify({ error: 'Internal server error' }));
-      console.log(error);
-      return;
     }
   };
 

@@ -4,19 +4,20 @@ import { Endpoit } from 'types';
 
 export const createServer = (endpoints: Endpoit[], port: number) => {
   const requestHandler = async (req: IncomingMessage, res: ServerResponse) => {
-    const endpoint = matchEndpoint(endpoints, req);
+    try {
+      const endpoint = matchEndpoint(endpoints, req);
 
-    if (endpoint) {
-      try {
+      if (endpoint) {
         await Promise.resolve(endpoint.handler(req, res, endpoint));
-      } catch (error) {
-        res.writeHead(500);
-        res.end(JSON.stringify({ error: 'Internal server error' }));
-        return;
+      } else {
+        res.writeHead(404);
+        res.end(JSON.stringify({ error: 'Resource not found' }));
       }
-    } else {
-      res.writeHead(404);
-      res.end(JSON.stringify({ error: 'Resource not found' }));
+    } catch (error) {
+      res.writeHead(500);
+      res.end(JSON.stringify({ error: 'Internal server error' }));
+      console.log(error);
+      return;
     }
   };
 

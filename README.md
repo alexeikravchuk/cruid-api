@@ -1,7 +1,7 @@
 # cruid-api
 RS School. Node.js Course. 
 
-Before start:
+### Before start:
 - Copy `.env.example` file and rename it to `.env`. Set desired port number by changing PORT number (defult: `PORT=3000`).
 
 Use next commands:
@@ -12,6 +12,31 @@ Use next commands:
 - `npm test` - to run tests
 
 To spawn some default users make GET requst to route [/api/users/spawn](http://localhost:3000/api/users/spawn)
+
+###  Avalible operations:
+1. Create new user — POST request to [/api/users](http://localhost:3000/api/users) with body:
+```
+{
+    "username": String,     // required
+    "age": Number,      // required
+    "hobbies": Array<String>     // required
+}
+```
+2. Get user — GET request to [/api/users/:userID](http://localhost:3000/api/users/:userID)
+3. Get users — GET request to [/api/users](http://localhost:3000/api/users)
+4. Update user — PUT request to [/api/users/:userID](http://localhost:3000/api/users/:userID) with body:
+```
+{
+    "username": String,     // optional
+    "age": Number,      // optional
+    "hobbies": Array<String>     // optional
+}
+```
+5. Delete user — DELETE request to [/api/users/:userID](http://localhost:3000/api/users/:userID)
+
+
+---
+
 
 # Assignment: CRUD API
 

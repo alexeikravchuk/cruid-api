@@ -7,6 +7,8 @@ const getBodyData = async (req: IncomingMessage) => {
     data += chunk;
   }
 
+  if (!data) return {};
+
   return JSON.parse(data);
 };
 

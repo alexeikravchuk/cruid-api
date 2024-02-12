@@ -1,4 +1,4 @@
-import { Endpoit } from 'types';
+import { Endpoit } from './types';
 import { createServer } from './server';
 
 import dotenv from 'dotenv';

@@ -1,11 +1,15 @@
 # cruid-api
 RS School. Node.js Course. 
 
-commands:
+Before start:
+- Copy `.env.example` file and rename it to `.env`. Set desired port number by changing PORT number (defult: `PORT=3000`).
+
+Use next commands:
 - ``npm install`` - to install dependencies
 - ``npm run start:dev`` - to start application in development mode
 - ``npm run build`` - to build application
 - ``npm run start:prod`` - to start builded application from `dist` folder
+- `npm test` - to run tests
 
 To spawn some default users make GET requst to route [/api/users/spawn](http://localhost:3000/api/users/spawn)
 
